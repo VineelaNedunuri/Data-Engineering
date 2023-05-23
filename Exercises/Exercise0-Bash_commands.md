@@ -157,7 +157,18 @@ du -h
 
 a) Create a folder called data with a subfolder called pokemons
 
+```bash
+mkdir data
+mkdir data/pokemons
+
+```
+
 b) Create a file called pokemon_list.txt
+
+```bash
+touch data/pokemon_list.txt
+
+```
 
 c) Type in a random list of pokemons, using echo and the bitshift operator
 
@@ -172,6 +183,16 @@ zapdos
 mewtwo
 ```
 
+```bash
+echo "
+pikachu
+voltorb
+bulbasaur
+mew
+zapdos
+mewtwo" > data/pokemon_list.txt
+```
+
 d) Loop through your file and print out the following
 
 ```bash
@@ -183,9 +204,22 @@ pokemon: zapdos
 pokemon: mewtwo
 ```
 
+```bash
+while read -r line; do
+   echo "pokemon: $line";
+done < data/pokemon_list.txt
+  
+```
+
 e) Now test out the following api manually in your browser [https://pokeapi.co/api/v2/pokemon-species/voltorb](https://pokeapi.co/api/v2/pokemon-species/voltorb)
 
+
 f) Now test it out using bash, and see that it prints out the same results
+
+```bash
+curl https://pokeapi.co/api/v2/pokemon-species/voltorb
+ 
+```
 
 g) Do a for loop on pokemon_list.txt, pick the pokemons on the file and request the api. Save each pokemon into their respective json file. Important: add a pause of 2 seconds after each iteration. Your structure should look something like this now.
 
