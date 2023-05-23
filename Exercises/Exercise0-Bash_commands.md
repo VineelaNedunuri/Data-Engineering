@@ -10,10 +10,18 @@ Use windows for linux (WSL), ubuntu bash, git bash or terminal in mac to solve a
 
 a) Make a directory called Linux-training.
 
+```bash
+mkdir Linux-training
+```
+
 b) Create the files called
 
 ```bash
 “note1.txt”, “note2.txt”, “note3.txt”, “note4"
+```
+```bash
+touch note{1..3}.txt
+touch note4
 ```
 
 ---
@@ -22,19 +30,56 @@ b) Create the files called
 
 a) Make a subdirectory called cool_notes
 
+```bash
+mkdir Linux-training/cool_notes
+```
+
 b) Move all .txt files into cool_notes
+
+```bash
+mv Linux-training/*.txt Linux-training/cool_notes
+
+```
 
 c) Delete note4
 
+```bash
+rm Linux-training/note4
+```
+
 d) Change directory to cool_notes and list all the files there
+
+```bash
+cd Linux-training/cool_notes
+ls
+```
 
 e) Move note3.txt out from cool_notes into parent directory
 
+```bash
+mv note3.txt ../note3.txt
+```
+
 f) Navigate to parent directory
+
+```bash
+cd ..
+
+```
 
 g) From here list all files including hidden files
 
+```bash
+ls -a
+
+```
+
 h) Change name on note3.txt to note_home.txt
+
+```bash
+mv note3.txt note_home.txt
+
+```
 
 ---
 
@@ -42,9 +87,24 @@ h) Change name on note3.txt to note_home.txt
 
 a) Print out “hello from note_home” into bash
 
+```bash
+echo "hello from note_home"
+
+```
+
 b) Write this text string into note_home.txt
 
+```bash
+echo "hello from note_home" > note_home.txt
+
+```
+
 c) Print out the “current path is: <your current directory path>” in bash
+
+```bash
+echo "current path is: $(pwd)"
+
+```
 
 d) Write this string into note_home in a new line so it should contain
 
@@ -53,15 +113,43 @@ hello from note_home
 current_directory is: <your current directory path>
 ```
 
+```bash
+echo -e "\ncurrent path is: $(pwd)" >> note_home.txt
+
+```
 e) Print out the content of the note_home.txt
+
+```bash
+cat note_home.txt
+```
 
 f) Count the number of words in this file
 
+```bash
+wc -w note_home.txt
+
+```
+
 g) Count the number of lines in this file
+
+
+```bash
+wc -l note_home.txt
+
+```
 
 h) Count the number of files in cool_notes
 
+```bash
+ls -1 cool_notes | wc -l
+
+```
+
 i) Check the disk usage in your directory and make the format human readable
+
+```bash
+du -h
+```
 
 ---
 
