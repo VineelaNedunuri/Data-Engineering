@@ -213,7 +213,7 @@ done < data/pokemon_list.txt
 e) Now test out the following api manually in your browser [https://pokeapi.co/api/v2/pokemon-species/voltorb](https://pokeapi.co/api/v2/pokemon-species/voltorb)
 
 ```bash
- https://pokeapi.co/api/v2/pokemon-species/voltorb # click the follow link
+ https://pokeapi.co/api/v2/pokemon-species/voltorb # click the follow link ctrl+click
 ```
 
 f) Now test it out using bash, and see that it prints out the same results
