@@ -272,6 +272,13 @@ i) Now move yourself to the same level, i.e. sibling to data directory. Create a
 └── download_pokemons.sh
 ```
 
+```bash
+$ touch download_pokemons.sh
+$ nano download_pokemons.sh
+$ chmod +x download_pokemons.sh
+$ ./download_pokemons.sh
+
+```
 ---
 
 ## X. Commands glossary (\*)
