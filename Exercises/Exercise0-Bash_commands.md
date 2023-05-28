@@ -11,7 +11,7 @@ Use windows for linux (WSL), ubuntu bash, git bash or terminal in mac to solve a
 a) Make a directory called Linux-training.
 
 ```bash
-mkdir Linux-training
+$ mkdir Linux-training
 ```
 
 b) Create the files called
@@ -20,8 +20,8 @@ b) Create the files called
 “note1.txt”, “note2.txt”, “note3.txt”, “note4"
 ```
 ```bash
-touch note{1..3}.txt
-touch note4
+$ touch note{1..3}.txt
+$ touch note4
 ```
 
 ---
@@ -31,53 +31,53 @@ touch note4
 a) Make a subdirectory called cool_notes
 
 ```bash
-mkdir Linux-training/cool_notes
+$ mkdir Linux-training/cool_notes
 ```
 
 b) Move all .txt files into cool_notes
 
 ```bash
-mv Linux-training/*.txt Linux-training/cool_notes
+$ mv Linux-training/*.txt Linux-training/cool_notes
 
 ```
 
 c) Delete note4
 
 ```bash
-rm Linux-training/note4
+$ rm Linux-training/note4
 ```
 
 d) Change directory to cool_notes and list all the files there
 
 ```bash
-cd Linux-training/cool_notes
-ls
+$ cd Linux-training/cool_notes
+$ ls
 ```
 
 e) Move note3.txt out from cool_notes into parent directory
 
 ```bash
-mv note3.txt ../note3.txt
+$ mv note3.txt ../note3.txt
 ```
 
 f) Navigate to parent directory
 
 ```bash
-cd ..
+$ cd ..
 
 ```
 
 g) From here list all files including hidden files
 
 ```bash
-ls -a
+$ ls -a
 
 ```
 
 h) Change name on note3.txt to note_home.txt
 
 ```bash
-mv note3.txt note_home.txt
+$ mv note3.txt note_home.txt
 
 ```
 
@@ -88,45 +88,45 @@ mv note3.txt note_home.txt
 a) Print out “hello from note_home” into bash
 
 ```bash
-echo "hello from note_home"
+$ echo "hello from note_home"
 
 ```
 
 b) Write this text string into note_home.txt
 
 ```bash
-echo "hello from note_home" > note_home.txt
+$ echo "hello from note_home" > note_home.txt
 
 ```
 
 c) Print out the “current path is: <your current directory path>” in bash
 
 ```bash
-echo "current path is: $(pwd)"
+$ echo "current path is: $(pwd)"
 
 ```
 
 d) Write this string into note_home in a new line so it should contain
 
 ```bash
-hello from note_home
-current_directory is: <your current directory path>
+$ hello from note_home
+$ current_directory is: <your current directory path>
 ```
 
 ```bash
-echo -e "\ncurrent path is: $(pwd)" >> note_home.txt
+$ echo -e "\ncurrent path is: $(pwd)" >> note_home.txt
 
 ```
 e) Print out the content of the note_home.txt
 
 ```bash
-cat note_home.txt
+$ cat note_home.txt
 ```
 
 f) Count the number of words in this file
 
 ```bash
-wc -w note_home.txt
+$ wc -w note_home.txt
 
 ```
 
@@ -134,21 +134,21 @@ g) Count the number of lines in this file
 
 
 ```bash
-wc -l note_home.txt
+$ wc -l note_home.txt
 
 ```
 
 h) Count the number of files in cool_notes
 
 ```bash
-ls -1 cool_notes | wc -l
+$ ls -1 cool_notes | wc -l
 
 ```
 
 i) Check the disk usage in your directory and make the format human readable
 
 ```bash
-du -h
+$ du -h
 ```
 
 ---
@@ -158,8 +158,8 @@ du -h
 a) Create a folder called data with a subfolder called pokemons
 
 ```bash
-mkdir data
-mkdir data/pokemons
+
+ $ mkdir -p data/pokemons
 
 ```
 
@@ -167,7 +167,7 @@ mkdir data/pokemons
 b) Create a file called pokemon_list.txt
 
 ```bash
-touch data/pokemon_list.txt
+$ touch data/pokemons/pokemon_list.txt
 ```
 
 
@@ -183,14 +183,9 @@ mew
 zapdos
 mewtwo
 ```
+
 ```bash
-echo "
-pikachu
-voltorb
-bulbasaur
-mew
-zapdos
-mewtwo" > data/pokemon_list.txt
+$ echo -e "pikachu\nvoltorb\nbulbasaur\nmew\nzapdos\nmewtwo" > data/pokemons/pokemon_list.txt
 ```
 
 
@@ -207,7 +202,7 @@ pokemon: mewtwo
 ```bash
 while read -r line; do
    echo "pokemon: $line";
-done < data/pokemon_list.txt  
+done < data/pokemons/pokemon_list.txt  
 ```
 
 e) Now test out the following api manually in your browser [https://pokeapi.co/api/v2/pokemon-species/voltorb](https://pokeapi.co/api/v2/pokemon-species/voltorb)
@@ -219,7 +214,7 @@ e) Now test out the following api manually in your browser [https://pokeapi.co/a
 f) Now test it out using bash, and see that it prints out the same results
 
 ```bash
-curl https://pokeapi.co/api/v2/pokemon-species/voltorb
+$ curl https://pokeapi.co/api/v2/pokemon-species/voltorb
 ```
 
 g) Do a for loop on pokemon_list.txt, pick the pokemons on the file and request the api. Save each pokemon into their respective json file. Important: add a pause of 2 seconds after each iteration. Your structure should look something like this now.
@@ -236,7 +231,31 @@ g) Do a for loop on pokemon_list.txt, pick the pokemons on the file and request 
         └── zapdos.json
 ```
 
+
+```bash
+$ touch init_json_files.sh
+$ nano init_json_files.sh
+#!/bin/bash
+echo "running initializations"
+
+
+for pokemon in $(cat data/pokemons/pokemon_list.txt); do
+  echo "Requesting API for $pokemon"
+  curl -s "https://pokeapi.co/api/v2/pokemon-species/$pokemon" -o "data/pokemons/$pokemon.json"
+  sleep 2
+done < data/pokemons/pokemon_list.txt
+
+$ ./init_json_files.sh
+
+```
+
 h) Remove all files ending with .json using one command
+
+```bash
+$ rm data/pokemons/*.json
+```
+
+
 
 i) Now move yourself to the same level, i.e. sibling to data directory. Create a bash script file called download_pokemons.sh. Put in bash logic for downloading the pokemons specified in data/pokemon/pokemon_list.txt file and saving it into data/pokemons/ and run it. Your file structure might look like this now. (\*\*)
 
