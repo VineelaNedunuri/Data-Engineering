@@ -285,37 +285,37 @@ $ ./download_pokemons.sh
 
 Fill in this table. You can do this in any application, it might be too hardcore to do this with terminal only. Tips you can use man command to check documentation. Also try out the different commands to see them in action.
 
-| Command | What does the command do | Some useful options |
-| ------- | ------------------------ | ------------------- |
-| cd      |                          |                     |
-| ls      |                          |                     |
-| touch   |                          |                     |
-| wc      |                          |                     |
-| grep    |                          |                     |
-| mkdir   |                          |                     |
-| mv      |                          |                     |
-| rm      |                          |                     |
-| rmdir   |                          |                     |
-| ssh     |                          |                     |
-| curl    |                          |                     |
-| sudo    |                          |                     |
-| apt-get |                          |                     |
-| ps      |                          |                     |
-| cp      |                          |                     |
-| less    |                          |                     |
-| top     |                          |                     |
-| head    |                          |                     |
-| echo    |                          |                     |
-| cat     |                          |                     |
-| chmod   |                          |                     |
-| chown   |                          |                     |
-| kill    |                          |                     |
-| &&      |                          |                     |
-| wget    |                          |                     |
-| pwd     |                          |                     |
-| >>      |                          |                     |
-| >       |                          |                     |
-| \*      |                          |                     |
-| ./      |                          |                     |
-| diff    |                          |                     |
-| find    |                          |                     |
+| Command | What does the command do                  | Some useful options |
+| ------- | ------------------------                  | ------------------- |
+| cd      |      Change directory                     |                     |
+| ls      | List files and directories in a directory |-l (long format), -a (include hidden files), -h (human-readable) |
+| touch   |     Create an empty file                  |                     |
+| wc      |  Word, line, character, and byte count    | -w (word count), -l (line count), -c (character count)         |
+| grep    |  Search for patterns in files or output   | -i (ignore case), -r (recursive), -v (invert match)            |
+| mkdir   |  Create a new directory                   |      -p (create parent directories if they don't exist)   |
+| mv      |  Move or rename files and directories     | -i (interactive, prompt before overwriting), -u (update, move only when the source is newer than the destination)|
+| rm      | Remove files or directories               |	-r (recursive, for directories), -f (force, don't prompt for confirmation)|
+| rmdir   |	Remove empty directories                  |                     |
+| ssh     | Secure shell, remote login                |                     |
+| curl    | Transfer data from or to a server         | -O (save to a file with the same name), -L (follow redirects)   |
+| sudo    | Execute a command as a superuser          |                     |
+| apt-get | Package handling utility for Debian-based systems |  install (install packages), remove (remove packages)   |
+| ps      | Report information about running processes| -ef (extended format), -aux (all users, showing more details)   |
+| cp      | Copy files and directories                | -r (recursive, for directories), -i (interactive, prompt before overwriting)|
+| less    |  View file contents interactively         |                     |
+| top     | Monitor system processes and resource usage|                     |
+| head    | Output the first part of files             | -n (number of lines)                     |
+| echo    | Output arguments or text                   |-e (enable interpretation of backslash escapes)               |
+| cat     | Concatenate and display files              |-n (number lines), -b (number non-blank lines)                |
+| chmod   | Change file permissions                    |                     |
+| chown   | Change file owner and group                |                     |
+| kill    | Send signals to processes                  |                     |
+| &&      |Logical AND operator                        |                     |
+| wget    | Download files from the web                |                     |
+| pwd     |  Print the current working directory       |                     |
+| >>      |  Append output to a file                   |                     |
+| >       | Redirect output to a file                  |                     |
+| \*      |Wildcard, matches any characters            |                     |
+| ./      | Current directory                          |                     |
+| diff    | Compare files line by line                 |                     |
+| find    | Search files and directories               |-name (search by name), -type (search by file type |
