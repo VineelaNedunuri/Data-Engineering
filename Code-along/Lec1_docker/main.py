@@ -1,1 +1,5 @@
-print('hello from the docker side')
+import sys
+
+print('Hello from the docker side')
+
+print(f"Python version: {sys.version}")
