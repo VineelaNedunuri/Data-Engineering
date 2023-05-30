@@ -16,6 +16,17 @@ Exercise1
     └── ex1_1_setup.py
 ```
 
+```bash
+ mkdir Exercise1
+ ls
+ cd Exercise1/
+ touch Dockerfile
+ mkdir src
+ cd src/
+ touch ex1_0_setup.py
+ touch ex1_1_setup.py
+```
+
 b) Create a Dockerfile with base image Python 3.9 and with the following packages.
 
 - matplotlib
