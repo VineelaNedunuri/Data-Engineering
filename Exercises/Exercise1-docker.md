@@ -38,11 +38,36 @@ b) Create a Dockerfile with base image Python 3.9 and with the following package
 
 Make sure ex1_0_setup.py runs when the container starts. Also specify the working directory to /Exercise1 inside of the container.
 
+
+```bash
+Dockerfile
+
+FROM python:3.9
+WORKDIR /Exercise1
+
+# host container 
+ADD src/ex1_0_setup.py .
+RUN pip install matplotlib plotly_express pandas numpy dash scikit-learn 
+CMD ["python", "./ex1_0_setup.py"]
+```
 c) Create a docker image with name ex1-image
+
+```bash
+docker build -t ex1-image .
+docker image ls
+docker run ex1-image
+```
 
 d) Spin up your docker container and name it ex1-container.
 
+```bash
+docker run --name ex1-container ex1-image
+```
+
 e) Go into your container and make sure that these packages are installed.
+```bash
+docker run --name ex1-container ex1-image
+```
 
 f) Create a bash script that lists the installed packages.
 
