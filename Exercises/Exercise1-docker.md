@@ -74,7 +74,6 @@ e) Go into your container and make sure that these packages are installed.
 ```bash
 docker run --name ex1-container ex1-image
 
-chmod +x list_packages.sh
 
 ```
 
