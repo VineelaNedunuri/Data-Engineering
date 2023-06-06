@@ -77,7 +77,19 @@ e) Go into your container and make sure that these packages are installed.
 f) Create a bash script that lists the installed packages.
 
 ```bash
- docker exec -it ex1-container /bin/bash
+
+touch list_package.sh
+nano list_package.sh
+#!/bin/bash
+
+docker exec ex1-container pip list > installed_packages.txt
+
+$ chmod +x list_packages.sh
+
+./list_packages.sh
+
+./list_packages.sh > 
+
 ```
 
 g) Now create a Python script that prints out the installed packages and the version of Python.
