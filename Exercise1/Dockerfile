@@ -12,4 +12,4 @@ ADD requirements.txt .
 RUN pip install -r requirements.txt
 
 # Specify the command to run when the container starts
-CMD ["python", "./src/ex1_0_setup.py"]
+CMD ["python", "./ex1_0_setup.py"]
