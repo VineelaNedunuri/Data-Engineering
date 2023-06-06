@@ -82,7 +82,7 @@ touch list_package.sh
 nano list_package.sh
 #!/bin/bash
 
-docker exec ex1-container pip list > installed_packages.txt
+docker exec ex1-container pip list > requirements.txt
 
 $ chmod +x list_packages.sh
 
@@ -90,22 +90,80 @@ $ chmod +x list_packages.sh
 
 ./list_packages.sh > 
 
+
+
 ```
 
 g) Now create a Python script that prints out the installed packages and the version of Python.
 
+```bash
+ #create python_packages.py
+import sys
+import pkg_resources
+
+# print python version
+print(f"\nPython version: {sys.version}")
+
+
+# print installed packages
+print("\nInstalled Packages:")
+
+installed_packages= pkg_resources.working_set
+
+for package in installed_packages:
+    print(package.key,  package.version)
+
+# In bash
+ python python_packages.py
+```
+
 h) Spin up the container in interactive mode. Here are some stuffs you can explore
+```bash
+ docker exec -it ex1-container /bin/bash
+```
 
 - check your current directory
+```bash
+ pwd
+```
 - list all files
+```bash
+ ls
+```
 - navigate to parents and list files
+```bash
+ cd ..
+ ls
+```
 - list all files inside Exercise1
-- count all files and folders inside Exercise1
-- check your OS
-- check the current date
-- take a snapshot of the current python packages with corresponding versions and pipe them into requirements2.txt
-- check the differences in requirements2.txt and requirements.txt
 
+```bash
+ cd Exercise1/
+ ls
+```
+- count all files and folders inside Exercise1
+```bash
+ ls -l | wc -l
+```
+- check your OS
+```bash
+ echo "OS: $OSTYPE"
+```
+- check the current date
+```bash
+ date 
+ 
+```
+- take a snapshot of the current python packages with corresponding versions and pipe them into requirements2.txt
+```bash
+ pip freeze > requirements2.txt
+```
+
+- check the differences in requirements2.txt and requirements.txt
+```bash
+ diff requirements.txt requirements2.txt
+
+```
 ---
 
 ## 1. It's the final countdown (*)

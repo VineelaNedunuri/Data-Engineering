@@ -5,11 +5,8 @@ WORKDIR /Exercise1
 # Add source files
 ADD src/ex1_0_setup.py .
 
-# Add requirements file
-ADD requirements.txt .
-
 # Install required packages
-RUN pip install -r requirements.txt
+RUN pip install matplotlib plotly_express pandas numpy dash sklearn
 
 # Specify the command to run when the container starts
 CMD ["python", "./ex1_0_setup.py"]
