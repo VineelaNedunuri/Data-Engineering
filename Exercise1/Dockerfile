@@ -6,6 +6,6 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # host container 
-ADD src/  .
+ADD src/ .
 
 CMD ["python", "ex1_0_setup.py"]
