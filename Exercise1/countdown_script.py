@@ -22,14 +22,14 @@ os.makedirs(log_dir, exist_ok=True)
 # Create the log file path
 log_path = os.path.join(log_dir, "countdown.log")
 
-current_time = datetime.now().replace(microsecond=0)
+current_time = datetime.now()
 
 with open(log_path, "w") as file:
-    file.write(f"-------------------------------------------------\nCountdown from {current_time}\n-------------------------------------------------\n\n")
+    file.write(f"-------------------------------------------------\nCountdown from {datetime.now().replace(microsecond=0)}\n-------------------------------------------------\n\n")
     file.write(f"| {'Event':<20} | {'Years':<10} | {'Months':<10} | {'Days':<10} | {'Hours':<10} | {'Minutes':<10} | {'Seconds':<10} |\n")
     file.write(f"|{'-' * 22}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|\n")
 
-    print(f"-------------------------------------------------\nCountdown from {current_time}\n-------------------------------------------------\n\n")
+    print(f"-------------------------------------------------\nCountdown from {datetime.now().replace(microsecond=0)}\n-------------------------------------------------\n\n")
 
     print(f"| {'Event':<20} | {'Years':<10} | {'Months':<10} | {'Days':<10} | {'Hours':<10} | {'Minutes':<10} | {'Seconds':<10} |")
     print(f"|{'-' * 22}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|")
