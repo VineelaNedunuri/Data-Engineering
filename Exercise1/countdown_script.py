@@ -27,7 +27,7 @@ current_time = datetime.now().replace(microsecond=0)
 with open(log_path, "w") as file:
     file.write(f"-------------------------------------------------\nCountdown from {current_time}\n-------------------------------------------------\n\n")
     file.write(f"| {'Event':<20} | {'Years':<10} | {'Months':<10} | {'Days':<10} | {'Hours':<10} | {'Minutes':<10} | {'Seconds':<10} |\n")
-    file.write(f"|{'-' * 22}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 14}|{'-' * 14}|\n")
+    file.write(f"|{'-' * 22}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|\n")
 
     print(f"-------------------------------------------------\nCountdown from {current_time}\n-------------------------------------------------\n\n")
 
@@ -43,8 +43,10 @@ with open(log_path, "w") as file:
         years = time_remaining.days // 365
         months = (time_remaining.days % 365) // 30
         days = (time_remaining.days % 365) % 30
-        hours, remainder = divmod(time_remaining.seconds, 3600)
-        minutes, seconds = divmod(remainder, 60)
+        hours = time_remaining.seconds // 3600
+        minutes = (time_remaining.seconds % 3600) // 60
+        seconds = (time_remaining.seconds % 3600) % 60
+
         file.write(f"| {event:<20} | {years:<10} | {months:<10} | {days:<10} | {hours:<10} | {minutes:<10} | {seconds:<10} |\n")
         print(f"| {event:<20} | {years:<10} | {months:<10} | {days:<10} | {hours:<10} | {minutes:<10} | {seconds:<10} |")
 
