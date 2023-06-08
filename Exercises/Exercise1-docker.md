@@ -192,6 +192,7 @@ a) Make a script to get the following output to a file called countdown.log insi
 b) Make a cron schedule inside of your docker container in interactive mode to run your script
 
 Note that you might need to install
+install
 
 - crontab
 - nano
