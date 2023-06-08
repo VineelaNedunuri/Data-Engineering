@@ -29,7 +29,7 @@ with open(log_path, "w") as file:
     file.write(f"| {'Event':<20} | {'Years':<10} | {'Months':<10} | {'Days':<10} | {'Hours':<10} | {'Minutes':<10} | {'Seconds':<10} |\n")
     file.write(f"|{'-' * 22}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|\n")
 
-    print(f"-------------------------------------------------\nCountdown from {datetime.now().replace(microsecond=0)}\n-------------------------------------------------\n\n")
+    print(f"-------------------------------------------------\n Countdown from {datetime.now().replace(microsecond=0)}\n-------------------------------------------------\n\n")
 
     print(f"| {'Event':<20} | {'Years':<10} | {'Months':<10} | {'Days':<10} | {'Hours':<10} | {'Minutes':<10} | {'Seconds':<10} |")
     print(f"|{'-' * 22}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|{'-' * 12}|")
