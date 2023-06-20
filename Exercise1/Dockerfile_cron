@@ -8,6 +8,9 @@ RUN apt-get update && apt-get install -y cron nano
 COPY countdown_script.py /app/countdown_script.py
 RUN chmod +x /app/countdown_script.py
 
+# Create the cron.txt file
+RUN touch /app/logs/cron.txt
+
 # Set up the cron job
 
 RUN echo "*/2 * * * * /usr/bin/python3 /app/countdown_script.py >> /app/logs/countdown.txt 2>&1" > /etc/cron.d/countdown-cron
