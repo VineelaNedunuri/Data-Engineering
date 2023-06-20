@@ -3,18 +3,14 @@ FROM python:3.9
 # Install cron and nano
 RUN apt-get update && apt-get install -y cron nano
 
-
 # Copy the Python script
 COPY countdown_script.py /app/countdown_script.py
 RUN chmod +x /app/countdown_script.py
 
-# Create the cron.txt file
-RUN touch /app/logs/cron.txt
-
 # Set up the cron job
-
-RUN echo "*/2 * * * * /usr/bin/python3 /app/countdown_script.py >> /app/logs/countdown.txt 2>&1" > /etc/cron.d/countdown-cron
+RUN touch /logs/cron.txt
+RUN echo "*/2 * * * * /usr/bin/python3 /app/countdown_script.py >> /logs/cron.txt 2>&1" > /etc/cron.d/countdown-cron
 RUN chmod 0644 /etc/cron.d/countdown-cron
 
-# Run cron and append output to existing cron.txt
-CMD cron && tail -f /app/logs/cron.txt
+# Run cron and append output to cron.txt
+CMD cron && tail -f /logs/cron.txt
