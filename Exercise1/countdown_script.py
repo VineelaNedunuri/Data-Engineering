@@ -1,6 +1,6 @@
 import os 
 from datetime import datetime 
-#from tabulate import tabulate
+
 
 # Events with their names and dates
 events = {
