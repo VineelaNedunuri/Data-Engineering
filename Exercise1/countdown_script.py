@@ -20,7 +20,7 @@ os.makedirs(log_dir, exist_ok=True)
 
 
 # Create the log file path
-log_path = os.path.join(log_dir, "countdown.log")
+log_path = os.path.join(log_dir, "countdown.txt")
 
 current_time = datetime.now()
 
