@@ -14,7 +14,7 @@ dropdown_options = [{"label": f"{rolls} rolls","value":rolls} for rolls in [10,1
 #%%
 app = Dash(__name__)
 app.layout = Div([
-    H1("Dice Simulator"),
+    H1(" Cool dice Simulator"),
     P("Choose number of dices and number of rolls and enjoy the results"),
     dcc.Graph(id = "dice-graph"),
     Button("save dice rolls", id = "save-button"),

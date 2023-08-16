@@ -7,9 +7,13 @@ services:
     container_name: lecture2
 
  # named volume
-    volumes:
-      - dice_simulator:/app/src/
+   # volumes:
+    #  - dice_simulator:/app/src/
 
-volumes:
-  dice_simulator:
+  #bind mount
+    volumes:
+      - ./src:/app/src
+
+#volumes:
+#  dice_simulator:
 
