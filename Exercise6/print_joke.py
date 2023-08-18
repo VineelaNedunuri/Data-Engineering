@@ -19,11 +19,13 @@ reactions = [
 def get_random_reaction():
     return random.choice(reactions)
 
+
 def print_random_joke_and_reaction():
     joke = pyjokes.get_joke()
     reaction = get_random_reaction()
     print(f"Random joke: {joke}")
     print(f"Random reactions: {reaction}")
+
 
 if __name__ == "__main__":
     print_random_joke_and_reaction()
