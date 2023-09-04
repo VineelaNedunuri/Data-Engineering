@@ -12,9 +12,12 @@ data_warehouse_path = Path(__file__).parents[1] / "data" / "data_warehouse"
 
 print(data_lake_path)
 
-with DAG(dag_id = "joke_DAG", start_date=datetime(2023,8,27)):
-    say_hello = BashOperator(task_id = "say_hello",bash_command="echo 'hej hej'")
+with DAG(dag_id = "joke_DAG", start_date=datetime(2023,9,4)):
+
+    say_hello = BashOperator(task_id = "say_hello",bash_command="echo 'hej hej joking time'")
 
     setup_folders = BashOperator(task_id = "setup_folders",bash_command= f"mkdir -p{data_lake_path} {data_warehouse_path}")
     
-    say_hello >> setup_folders
+    download_joke = BashOperator(task_id = "random_joke", bash_command= f"curl -o {data_lake_path} / joke.json https://official-joke-api.appspot.com/random_joke") 
+
+    say_hello >> setup_folders >> download_joke
